@@ -149,6 +149,7 @@ install_x-ui() {
     fi
 
     mkdir x-ui
+    mv x-ui-linux.tar.gz x-ui
     cd x-ui
     tar zxvf x-ui-linux.tar.gz
     rm x-ui-linux.tar.gz -f
