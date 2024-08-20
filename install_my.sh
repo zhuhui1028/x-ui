@@ -4,7 +4,10 @@ red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
-
+config_confirm=$1
+config_account=$2
+config_password=$3
+config_port=$4
 cur_dir=$(pwd)
 
 # check root
@@ -82,13 +85,13 @@ install_base() {
 #This function will be called when user installed x-ui out of sercurity
 config_after_install() {
     echo -e "${yellow}出于安全考虑，安装/更新完成后需要强制修改端口与账户密码${plain}"
-    config_confirm=$1
+    
     if [[ x"${config_confirm}" == x"y" || x"${config_confirm}" == x"Y" ]]; then
-        config_account=$2
+        
         echo -e "${yellow}您的账户名将设定为:${config_account}${plain}"
-       config_password=$3
+       
         echo -e "${yellow}您的账户密码将设定为:${config_password}${plain}"
-        config_port=$4
+        
         echo -e "${yellow}您的面板访问端口将设定为:${config_port}${plain}"
         echo -e "${yellow}确认设定,设定中${plain}"
         /usr/local/x-ui/x-ui setting -username ${config_account} -password ${config_password}
